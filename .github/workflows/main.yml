@@ -53,9 +53,11 @@ jobs:
           USER_NAME: ${{secrets.SSH_USER}}
 
 # ~~~~~~~~~~~~~~~~~~~ Deploying Container Image ~~~~~~~~~~~~~~~~~~~
-          
+          # Line 60 and 61 should only be used for the second time deployment onwards
         run: |
           echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
           ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} '
+            sudo docker container rm -f bkob-server    
+            sudo docker system prune -a -f
             sudo docker run -p 80:80 -d --name bkob-server nbharathkumara/atas-demo:latest
             '
