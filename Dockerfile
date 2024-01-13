@@ -5,6 +5,6 @@ RUN sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|
 
 RUN yum install -y httpd
 
-RUN echo 'BKOB-WebPage' > /var/www/html/index.html
+RUN echo 'Welcome to Atas-Demo' > /var/www/html/index.html
 
 CMD ["/usr/sbin/httpd", "-D",  "FOREGROUND"]
