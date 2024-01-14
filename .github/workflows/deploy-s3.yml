@@ -1,4 +1,4 @@
-name: Beanstalk Deployment
+name: deploy-s3
 on:
   workflow_dispatch:
   
