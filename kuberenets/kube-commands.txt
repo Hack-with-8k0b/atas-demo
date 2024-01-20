@@ -3,7 +3,7 @@ chmod +x kubectl                    // add permission
 sudo mv kubectl /usr/local/bin      // move to path
 kubectl version --client
 
-
+aws eks --region us-east-2 update-kubeconfig --name <cluster-name>      // connects kubectl to the cluster
 
 kubectl get nodes		// list of available nodes
 kubectl run webserver --image=<image-name>	// creates a pod with the following image
