@@ -1,6 +1,7 @@
 curl -LO https://dl.k8s.io/release/v1.28.6/bin/linux/amd64/kubectl    // command to download Kubectl
 chmod +x kubectl                    // add permission 
 sudo mv kubectl /usr/local/bin      // move to path
+kubectl version --client
 
 
 
