@@ -1,0 +1,24 @@
+kubectl get nodes		// list of available nodes
+kubectl run webserver --image=<image-name>	// creates a pod with the following image
+kubectl exec -it <pod-name> -- <cmd-to-be-executed>	// run specific command on the pod
+kubectl get pods		// list available pods
+kubectl get pods -o wide		// list available pods with detailed info
+kubectl delete pod <pod-name>	// deletes specific pod
+kubectl apply -f <.yaml-file>	// applies a specific object, as defined in the yaml file
+kubectl delete -f <.yaml-file>	// deletes a specific object, as defined in the yaml file
+kubectl get pods -l <key> = <value>	// filtering the lists based on labels 
+kubectl get pods --show-labels		// displays the labels of all pods
+kubectl label pod <pod-name> <key> = <value>	// adding a label to the pod
+kubectl label pod <pod-name> <key>- // removing a label from the pod
+kubectl label pods --all <key> = <value>	// adding label to all pods in the namespace
+kubectl delete pods -all		// delete all running pods
+kubectl get replicaset 		// lists the available replica set
+kubectl delete rs <replica-set-name>	// delete specific replica set
+kubectl get deployments			// lists the available deployments
+kubectl rollout history deployment.v1.apps/<deployment-id>	// lists the history of deployments
+kubectl rollout history deployment.v1.apps/<deployment-id> --revision <number>	// Displays the pod template of that revision
+kubectl create deployment <deployment-name> --image=<image> --replicas <no. of replicase>	// Creates a deployment with specific replicas
+kubectl set image deployment <deployment-name> <old-image> = <new-image>	// changing the image in the deployment
+kubectl edit deployment <deployment-name> 	// to edit the config file of the deployment
+kubectl scale deployment/<deployment-name> --replicas=<no.>	// scale up the deployment
+kubectl create configmap <name> --from-literal=<value> // creates a configmap through literal
