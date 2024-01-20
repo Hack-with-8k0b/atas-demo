@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: sample-service-loadbalancer
+spec:
+  selector:
+    app_name: sample-httpd-server
+  ports:
+    - port: 80
+      targetPort: 80
+  type: LoadBalancer

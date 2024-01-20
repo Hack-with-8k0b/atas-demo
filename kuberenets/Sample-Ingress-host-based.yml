@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: sample-ingress-host
+spec:
+  rules:
+  - host: "hackwith.bkob.com"
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: sample-service-loadbalancer
+            port:
+              number: 80
