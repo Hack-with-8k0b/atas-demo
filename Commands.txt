@@ -1,0 +1,54 @@
+~~~~~~~~~~ Bash script to create a simple web server on ec2 Amazon Linux 2~~~~~~~~~~
+
+#!/bin/bash
+
+sudo yum update
+sudo yum install -y httpd
+
+sudo systemctl enable httpd
+sudo systemctl start httpd
+
+sudo echo 'BKOB-WebPage' > /var/www/html/index.html
+sudo chmod 775 /var/www/html/index.html
+
+~~~~~~~~~~ %%%%%%%%%% ~~~~~~~~~~
+
+~~~~~~~~~~ Commands to run on ec2 Amazon Linux 2 to run as docker client ~~~~~~~~~~
+
+--> Run on your EC2
+sudo yum update				
+sudo yum -y install docker
+sudo systemctl start docker
+
+~~~~~~~~~~ %%%%%%%%%% ~~~~~~~~~~
+
+~~~~~~~~~~ Docker commands irrespective of base OS ~~~~~~~~~~
+
+sudo docker build -t <image-name>:<tag> .	// Build image from docker file
+
+sudo docker run -d -p <host-port>:<container-port> --name <container-name> <image name>
+
+sudo docker container kill <container-name>	// stop a container 
+
+sudo docker container rm <container-name>	// stop a container 
+
+sudo docker exec -it <container-name> bash / sh
+
+sudo docker rmi <image-name>:<tag>	// to delete specific image
+
+sudo docker system prune -a	// to delete all unused image
+
+sudo docker ps		// lists running containers
+
+sudo docker images	// lists images in the system
+
+~~~~~~~~~~ %%%%%%%%%% ~~~~~~~~~~
+
+Cummulative Commands line Cheat Sheet
+
+https://docs.google.com/spreadsheets/d/1ZBAxMnEZZ6G9fkb5jBLEzq0FhWVcH4akatQ4qX41kzM/edit?usp=sharing
+
+
+
+
+
